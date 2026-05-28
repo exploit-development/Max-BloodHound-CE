@@ -754,9 +754,9 @@ def dpat_map_users(args, users, potfile):
             if nt_hash in potfile:
                 cracked_bool = 'true'
                 password = potfile[nt_hash]
-            elif lm_hash != "aad3b435b51404eeaad3b435b51404ee" and lm_hash in potfile:
+            elif lm_hash != "aad3b435b51404eeaad3b435b51404ee" and lm_hash[:16] in potfile and lm_hash[16:] in potfile:
                 cracked_bool = 'true'
-                password = potfile[lm_hash]
+                password = potfile[lm_hash[:16]] + potfile[lm_hash[16:]]
 
             if password != None:
                 if "$HEX[" in password:
@@ -846,7 +846,7 @@ def dpat_func(args):
                             continue
                         line = line.split(":")
 
-                        if len(line[0]) != 32:
+                        if len(line[0]) not in [16, 32]:
                             continue
 
                         potfile[line[0]] = line[1]
@@ -950,11 +950,11 @@ def dpat_func(args):
             'label' : "Enterprise Admin Accounts Cracked"
         },
         {
-            'query' : "match p = (n:Group)<-[:MemberOf*1..]-(m) where n.objectid =~ '(?i)S-1-5-.*-544' with [ n IN nodes(p) WHERE n:User] as dalist unwind (dalist) as u RETURN DISTINCT u.enabled,u.ntds_uname,u.nt_hash,u.password",
+            'query' : "match p = (n:Group)<-[:MemberOf*1..]-(m) where n.objectid =~ '(?i).*S-1-5-.*-544' with [ n IN nodes(p) WHERE n:User] as dalist unwind (dalist) as u RETURN DISTINCT u.enabled,u.ntds_uname,u.nt_hash,u.password",
             'label' : "Administrator Group Members"
         },
         {
-            'query' : "match p = (n:Group)<-[:MemberOf*1..]-(m) where n.objectid =~ '(?i)S-1-5-.*-544' with [ n IN nodes(p) WHERE n:User] as dalist unwind (dalist) as u MATCH (u {cracked:true}) RETURN DISTINCT u.enabled,u.ntds_uname,u.password,u.nt_hash",
+            'query' : "match p = (n:Group)<-[:MemberOf*1..]-(m) where n.objectid =~ '(?i).*S-1-5-.*-544' with [ n IN nodes(p) WHERE n:User] as dalist unwind (dalist) as u MATCH (u {cracked:true}) RETURN DISTINCT u.enabled,u.ntds_uname,u.password,u.nt_hash",
             'label' : "Administrator Group Member Accounts Cracked"
         },
         {
