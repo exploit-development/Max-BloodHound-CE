@@ -20,18 +20,14 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/github/stars/exploit-development/Max-BloodHound-CE?style=social" alt="Stars"/>
+  <img src="https://img.shields.io/github/forks/exploit-development/Max-BloodHound-CE?style=social" alt="Forks"/>
+</p>
+
+<p align="center">
   <a href="https://github.com/exploit-development/Max-BloodHound-CE/raw/master/sample_report.html" target="_blank">
     <img src="https://img.shields.io/badge/Download-Sample%20Report-brightgreen?style=for-the-badge" alt="Download Sample Report"/>
   </a>
-</p>
-
-<p align="center">
-  <img src="sample_data/screenshots/screenshot_2.png" alt="Sample report preview" width="900"/>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/github/stars/exploit-development/Max-BloodHound-CE?style=social" alt="Stars"/>
-  <img src="https://img.shields.io/github/forks/exploit-development/Max-BloodHound-CE?style=social" alt="Forks"/>
 </p>
 
 ---
