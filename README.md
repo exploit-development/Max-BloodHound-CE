@@ -25,8 +25,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/exploit-development/Max-BloodHound-CE/raw/master/sample_report.html" target="_blank">
-    <img src="https://img.shields.io/badge/Download-Sample%20Report-brightgreen?style=for-the-badge" alt="Download Sample Report"/>
+  <a href="https://exploit-development.github.io/Max-BloodHound-CE/sample_report.html" target="_blank">
+    <img src="https://img.shields.io/badge/View-Sample%20Report-brightgreen?style=for-the-badge" alt="View Sample Report"/>
   </a>
 </p>
 
